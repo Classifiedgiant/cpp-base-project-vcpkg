@@ -2,6 +2,13 @@
 ![Main Branch](https://github.com/Classifiedgiant/cpp-base-project/actions/workflows/bump-version.yml/badge.svg)
 ![Main Branch](https://github.com/Classifiedgiant/cpp-base-project/actions/workflows/create-release.yml/badge.svg)
 
+## New changes
+* Install Vcpkg on the dev machine [VCPKG docs](https://learn.microsoft.com/en-us/vcpkg/get_started/overview)
+```cpp
+vcpkg new --application
+vcpkg add port doctest
+
+```
 
 
 # cpp-base-project
