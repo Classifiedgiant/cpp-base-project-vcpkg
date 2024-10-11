@@ -55,7 +55,7 @@ jobs:
         github-binarycache: true
 
     - name: Generate Project via CMake
-      run: cmake ${{ steps.vcpkg.outputs.vcpkg-cmake-config }} -B build
+      run: cmake ${{ steps.vcpkg.outputs.vcpkg-cmake-config }} -B build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
       run: cmake --build ./build
