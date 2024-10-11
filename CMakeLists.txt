@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.27)
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set (CXX_STANDARD 23)
+set (CXX_STANDARD_REQUIRED True)
 
 set (UPDATE_VERSION "" CACHE STRING "version update for project")
 
