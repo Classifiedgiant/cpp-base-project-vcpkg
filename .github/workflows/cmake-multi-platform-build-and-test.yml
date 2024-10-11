@@ -61,15 +61,15 @@ jobs:
       run: cmake --build ./build
 
     - name: Create Package For Windows
-      if: ${{ success() && matrix.os == 'windows-latest' && inputs.create_package }}
+      if: ${{ success() && matrix.config.os == 'windows-latest' && inputs.create_package }}
       run: cpack --config ${{github.workspace}}\build\CPackConfig.cmake
 
     - name: Create Package For MacOS
-      if: ${{ success() && matrix.os == 'macos-latest' && inputs.create_package }}
+      if: ${{ success() && matrix.config.os == 'macos-latest' && inputs.create_package }}
       run: cpack --config ${{github.workspace}}/build/Release/CPackConfig.cmake
 
     - name: Upload Artifact For Windows
-      if: ${{ success() && matrix.os == 'windows-latest' && inputs.create_package }}
+      if: ${{ success() && matrix.config.os == 'windows-latest' && inputs.create_package }}
       uses: actions/upload-artifact@v4
       with:
         name: artifact-${{matrix.os}}
