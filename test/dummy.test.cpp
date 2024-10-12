@@ -12,4 +12,5 @@ TEST_CASE("Please work in here") {
   CHECK(1 == 1);
   CHECK_THROWS(throw std::invalid_argument("testy test"));
 }
+
 } // namespace DummyTest
