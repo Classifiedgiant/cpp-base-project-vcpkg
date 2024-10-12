@@ -1,15 +1,6 @@
-![Main Branch](https://github.com/Classifiedgiant/cpp-base-project/actions/workflows/cmake-multi-platform-build-and-test.yml/badge.svg)
-![Main Branch](https://github.com/Classifiedgiant/cpp-base-project/actions/workflows/bump-version.yml/badge.svg)
-![Main Branch](https://github.com/Classifiedgiant/cpp-base-project/actions/workflows/create-release.yml/badge.svg)
-
-## New changes
-* Install Vcpkg on the dev machine [VCPKG docs](https://learn.microsoft.com/en-us/vcpkg/get_started/overview)
-```cpp
-vcpkg new --application
-vcpkg add port doctest
-
-```
-
+![Main Branch](https://github.com/Classifiedgiant/cpp-base-project-vcpkg/actions/workflows/cmake-multi-platform-build-and-test.yml/badge.svg)
+![Main Branch](https://github.com/Classifiedgiant/cpp-base-project-vcpkg/actions/workflows/bump-version.yml/badge.svg)
+![Main Branch](https://github.com/Classifiedgiant/cpp-base-project-vcpkg/actions/workflows/create-release.yml/badge.svg)
 
 # cpp-base-project-vcpkg
 
@@ -25,7 +16,7 @@ CMakeLists files have been provided for the basic framework to quickly begin bui
 
 * Install Visual Studio (for Windows MSVC), GCC on Linux, and Xcode for mac
 * Install CMake on your machine (Add to PATH)
-* Seteup Vcpkg on your machine [https://learn.microsoft.com/en-us/vcpkg/get_started/overview](https://learn.microsoft.com/en-us/vcpkg/get_started/overview)
+* Setup Vcpkg on your machine [https://learn.microsoft.com/en-us/vcpkg/get_started/overview](https://learn.microsoft.com/en-us/vcpkg/get_started/overview)
 
 
 ## Setup Conan for building
