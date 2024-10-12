@@ -33,16 +33,18 @@ jobs:
         config:
           - os: ubuntu-latest
             vcpkg_triplet: x64-linux-release
+            artifact_ext: tar.gz
           - os: windows-latest
             vcpkg_triplet: x64-windows-release
+            artifact_ext: zip
           - os: macos-latest
             vcpkg_triplet: x64-osx-release
+            artifact_ext: tar.gz
 
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-tags: true
-
 
     - name: vcpkg build
       uses: johnwason/vcpkg-action@v6
@@ -57,29 +59,18 @@ jobs:
     - name: Generate Project via CMake
       run: cmake ${{ steps.vcpkg.outputs.vcpkg-cmake-config }} -B build -DCMAKE_BUILD_TYPE=Release
 
+    #  --config Release specifies VS 2022 release builds (ignored by other OS)
     - name: Build
       run: cmake --build ./build --config Release
 
-    - name: Create Package For Windows
-      if: ${{ success() && matrix.config.os == 'windows-latest' && inputs.create_package }}
-      run: cpack --config ${{github.workspace}}\build\CPackConfig.cmake
+    - name: Create Package For ${{ matrix.config.os }}
+      if: ${{ success() && inputs.create_package }}
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
-    - name: Create Package For MacOS
-      if: ${{ success() && matrix.config.os == 'macos-latest' && inputs.create_package }}
-      run: cpack --config ${{github.workspace}}/build/Release/CPackConfig.cmake
-
-    - name: Upload Artifact For Windows
-      if: ${{ success() && matrix.config.os == 'windows-latest' && inputs.create_package }}
+    - name: Upload Artifact For ${{ matrix.config.os }}
+      if: ${{ success() && inputs.create_package }}
       uses: actions/upload-artifact@v4
       with:
-        name: artifact-${{matrix.os}}
-        path: "${{github.workspace}}/*.zip"
-        if-no-files-found: error
-
-    - name: Upload Artifact For Macos
-      if: ${{ success() && matrix.os == 'macos-latest' && inputs.create_package }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: artifact-${{matrix.os}}
-        path: "${{github.workspace}}/*.tar.gz"
+        name: artifact-${{matrix.config.os}}
+        path: "${{github.workspace}}/*.${{ matrix.config.artifact_ext }}"
         if-no-files-found: error
