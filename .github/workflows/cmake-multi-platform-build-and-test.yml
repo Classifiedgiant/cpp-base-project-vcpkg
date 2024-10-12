@@ -58,7 +58,7 @@ jobs:
       run: cmake ${{ steps.vcpkg.outputs.vcpkg-cmake-config }} -B build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build ./build
+      run: cmake --build ./build --config Release
 
     - name: Create Package For Windows
       if: ${{ success() && matrix.config.os == 'windows-latest' && inputs.create_package }}
