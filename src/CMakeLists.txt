@@ -4,7 +4,7 @@ set(VERSION_FILE_NAME version.txt)
 
 # get versions from file
 file (READ ${VERSION_FILE_NAME} FILE_VERSION)
-string(REGEX MATCH "v([0-9]+)\.([0-9]+).([0-9]+)" _ ${FILE_VERSION})
+string(REGEX MATCH "v([0-9]+)\.([0-9]+)\.([0-9]+)" _ ${FILE_VERSION})
 set(APP_MAJOR_VERSION ${CMAKE_MATCH_1})
 set(APP_MINOR_VERSION ${CMAKE_MATCH_2})
 set(APP_PATCH_VERSION ${CMAKE_MATCH_3})
