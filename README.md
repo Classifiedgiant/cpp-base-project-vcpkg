@@ -19,7 +19,7 @@ CMakeLists files have been provided for the basic framework to quickly begin bui
 * Setup Vcpkg on your machine [https://learn.microsoft.com/en-us/vcpkg/get_started/overview](https://learn.microsoft.com/en-us/vcpkg/get_started/overview)
 
 
-## Setup Conan for building
+## Setup VCPKG for building
 * Create a new manifest
    * `vcpkg new --application`
 * Add new package
